@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<appender name="Application_Rolling_File_Appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>application.log</file>
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+        <layout class="com.cybg.email.logging.CustomLogFormat"/>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>${LogDir}/${logFilePrefix}-application-%d{MM-dd-yyyy}.%i.log.gz
+        </fileNamePattern>
+        <maxHistory>7</maxHistory>
+        <maxFileSize>10MB</maxFileSize>
+    </rollingPolicy>
+</appender>
+</configuration>
